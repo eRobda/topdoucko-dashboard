@@ -1,5 +1,17 @@
 import mysql from 'mysql2/promise';
-import { User } from './models/user';
+import { User } from './models/';
+
+const pool = mysql.createPool({
+  host: '193.203.166.123',
+  user: 'u498377835_td_admin',
+  password: '0~eVc6Y7t',
+  database: 'u498377835_topdoucko',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+export default pool;
 
 export async function getUsers() {
     const connection = await mysql.createConnection({
